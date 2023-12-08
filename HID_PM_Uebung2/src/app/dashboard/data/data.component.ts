@@ -5,8 +5,6 @@ import { StoreService } from 'src/app/shared/store.service';
 import { PageEvent } from '@angular/material/paginator';
 
 
-
-
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
@@ -61,10 +59,48 @@ export class DataComponent implements OnInit {
   }
 
   pageChanged(event: PageEvent) {
-    let currentPage = event.pageIndex + 1; // Paginator-Index beginnt bei 0, deshalb +1
+    let currentPage = event.pageIndex + 1;
     this.selectPageEvent.emit(currentPage);
     this.backendService.getChildren(currentPage);
   }
+
+
+
+ /*
+
+  Erster Versuch der Implementierung einer Suchfunktion
+
+  searchText: string = '';
+  items: any[] = [
+    { name: 'Item 1' },
+    { name: 'Item 2' },
+  ... weitere Elemente
+   ];
+
+   filteredItems(): any[] {
+     if (!this.searchText) {
+       return this.items;
+    }
+
+   const searchTextLowerCase = this.searchText.toLowerCase();
+
+   return this.items.filter(item => {
+      // Implementiere erweiterte Filterlogik hier
+     const nameMatch = item.name.toLowerCase().includes(searchTextLowerCase);
+     const kindergardenMatch = item.kindergarden.name.toLowerCase().includes(searchTextLowerCase);
+
+       // Filtere nach Name oder Kindergarten-Name
+       return nameMatch || kindergardenMatch;
+     });
+   }
+
+  // Neue Variable für gefilterte Daten
+   filteredData: any[] = [];
+
+  updateFilteredData() {
+   this.filteredData = this.filteredItems();
+  }
+  */
 
 }
 
