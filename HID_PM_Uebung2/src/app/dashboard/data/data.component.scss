@@ -1,0 +1,21 @@
+button.active {
+    background-color: orange;
+}
+
+.table_header {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.c_matPaginator {
+    font-size: 1.1em;
+}
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+ }
+   
+ .example-button-row .mat-mdc-button-base {
+     margin: 0px 0px 0px 12px;
+ }

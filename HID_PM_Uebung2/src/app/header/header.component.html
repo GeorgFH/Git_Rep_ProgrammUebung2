@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span class="c_display_title" >
+            {{ title }}
+        </span>
+
+        <span class="example-spacer"></span>
+
+        <button class="c_display_menu" mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/dashboard']" > Dashboard </button>
+        <button mat-menu-item [routerLink]="['/about']" > About </button>
+        </mat-menu>
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+<span>
+        <img class="c_img" src={{imagePath}}>&nbsp;&nbsp; 
+</span>

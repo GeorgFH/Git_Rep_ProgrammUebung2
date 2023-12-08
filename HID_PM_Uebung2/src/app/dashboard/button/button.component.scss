@@ -1,0 +1,16 @@
+
+.flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
+  }
+
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+  .new-custom-button {
+    font-size: 18px;
+  }

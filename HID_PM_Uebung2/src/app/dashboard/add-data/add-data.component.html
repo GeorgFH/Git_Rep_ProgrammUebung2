@@ -1,0 +1,70 @@
+
+<form class="example-form" [formGroup]="addChildForm" (ngSubmit)="onSubmit()">
+
+  <div class="flexbox">
+
+    <h1>Kind anmelden</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="input" formControlName="name">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Geburtsdatum</mat-label>
+      <input matInput type="date" formControlName="birthDate">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Kindergarten</mat-label>
+      <mat-select formControlName="kindergardenId" placeholder="Bitte auswählen">
+        <mat-option *ngFor="let kindergarden of storeService.kindergardens" [value]="kindergarden.id">
+          {{kindergarden.name}}, {{kindergarden.address}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div id="myAllert" *ngIf="showAlert" class="alert alert-danger" role="alert">
+      <p class="c_position" >Unvollständige Eingabe!</p>
+      <button type="button" class="btn-close" (click)="hideAlert()" aria-label="Close"></button>
+    </div>
+
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" class="new-custom-button" type="submit" >Erfassen</button>
+    </div>
+
+  </div>
+</form>
+
+
+<div class="toast-container">
+  <div id="myToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Notification</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Das Kind wurde erfolgreich angemeldet!
+    </div>
+  </div>
+</div>
+
+<!-- <button (click)="showToast()">Show Toast</button> -->
+
+<!-- <button (click)="toggleAlert()">Toggle Alert</button> -->
+
+<!-- <input placeholder="Name" type="input" formControlName="name"><br />
+    <input placeholder="Geburtsdatum" type="date" formControlName="birthDate"><br /> -->
+
+    <!-- <table class="example-full-width" cellspacing="0"><tr>
+        <select formControlName="kindergardenId">
+            <option value="" disabled>Bitte auswählen</option>
+            <option *ngFor="let kindergarden of storeService.kindergardens" [ngValue]="kindergarden.id">
+                {{kindergarden.name}}, {{kindergarden.address}}</option>
+        </select>
+    </tr></table> -->
+
+
+
+
