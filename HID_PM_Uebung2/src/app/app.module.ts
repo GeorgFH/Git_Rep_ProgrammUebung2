@@ -22,6 +22,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     DataComponent,
     HeaderComponent,
     ButtonComponent,
+    LoadingSpinnerComponent
     //PaginationPipe
   ],
   imports: [
@@ -51,7 +54,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule, 
     MatInputModule, 
     MatSelectModule, 
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,12 +14,6 @@
     },
     {
       "id": "_iL790m",
-      "name": "Emily Nilson 4",
-      "birthDate": "2019-01-04",
-      "kindergardenId": 2
-    },
-    {
-      "id": "_iL790m",
       "name": "Tom Reiner 5",
       "birthDate": "2019-01-04",
       "kindergardenId": 2
@@ -74,15 +68,15 @@
     },
     {
       "name": "Mini Max",
-      "kindergardenId": 1,
-      "birthDate": "2012-12-30",
-      "id": "JAeA9SF"
+      "kindergardenId": 3,
+      "birthDate": "2000-12-12",
+      "id": "pP_qier"
     },
     {
-      "name": "Maxi Max",
-      "kindergardenId": 2,
-      "birthDate": "2021-12-20",
-      "id": "MpmQZ5E"
+      "name": "ANsdi",
+      "kindergardenId": 4,
+      "birthDate": "2022-12-04",
+      "id": "cTTqt9N"
     }
   ],
   "kindergardens": [
