@@ -38,6 +38,7 @@ export class AddDataComponent implements OnInit{
       console.log(this.currentPage);
       this.backendService.addChildData(this.addChildForm.value, this.currentPage);
       this.showToast();
+      this.addChildForm.reset();
     } else {
       this.toggleAlert();
     }

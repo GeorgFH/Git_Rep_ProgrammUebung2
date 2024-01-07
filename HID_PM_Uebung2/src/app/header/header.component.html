@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar [routerLink]="['/dashboard']" color="primary">
     <mat-toolbar-row>
         <span class="c_display_title" >
             {{ title }}
@@ -9,7 +9,11 @@
         <button class="c_display_menu" mat-button [matMenuTriggerFor]="menu">Menu</button>
         <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="['/dashboard']" > Dashboard </button>
-        <button mat-menu-item [routerLink]="['/about']" > About </button>
+        <button mat-menu-item [routerLink]="['/kindergarten1']" > Waldorfkindergarten </button>
+        <button mat-menu-item [routerLink]="['/kindergarten2']" > Kindergarten der Stadt Wien 1 </button>
+        <button mat-menu-item [routerLink]="['/kindergarten3']" > Kindergarten der Stadt Wien 2 </button>
+        <button mat-menu-item [routerLink]="['/kindergarten4']" > Montessori Kinderhaus </button>
+        <button mat-menu-item [routerLink]="['/kindergarten5']" > Kindergarten der Karl Schubert Schule </button>
         </mat-menu>
 
     </mat-toolbar-row>

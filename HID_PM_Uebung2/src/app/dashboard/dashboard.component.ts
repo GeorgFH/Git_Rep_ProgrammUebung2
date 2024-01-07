@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StoreService } from 'src/app/shared/store.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  
+  constructor(public storeService: StoreService) {}
+  
   public currentPage: number = 1;
   public showAddData = true;
 
@@ -13,7 +17,9 @@ export class DashboardComponent {
     this.currentPage = newPageCount;
   }
 
+  
   toggleButtonClicked(showAddData: boolean) {
     this.showAddData = showAddData;
   }
+  
 }

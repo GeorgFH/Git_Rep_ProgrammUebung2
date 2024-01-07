@@ -1,8 +1,9 @@
 .overlay {
-    height: 100vh;
+    height: 100hv;
     width: 100%;
     background-color: rgba(0,0,0,0.286);
-    position: fixed;
+    z-index: 10;
+    position: absolute;
 }
 
 .center {

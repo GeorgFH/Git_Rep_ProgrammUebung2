@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   constructor(private backendService: BackendService, public storeService: StoreService) {}
 
   ngOnInit(): void {
+    //this.backendService.getChildren(page: number);
+   
     this.backendService.getKindergardens();
 
     // function sum(a: number, b: number) {

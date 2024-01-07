@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+nav {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+section {
+    padding: 20px;
+}
+footer {
+    background-color: #34495e;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.c_img {
+    display: flex;
+    justify-content: center; /* Zentrierung horizontal */
+    align-items: center; /* Zentrierung vertikal */
+    height: 70vh;
+    max-width: 100%; /* Begrenze die Bildbreite auf 100% des Containers */
+    width: auto; /* Sorge dafür, dass das Seitenverhältnis beibehalten wird */
+    max-height: 100%; /* Begrenze die Bildhöhe auf 100% des Containers */
+    clear: both; 
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.team-member {
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+.team-member img {
+    max-width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    float: right;
+    margin-left: 10px;
+}
+
+#contact {
+    margin-bottom: 50px; /* Füge ausreichend Platz unter der Kontakt-Section hinzu */
+}
+
+footer {
+    position: relative;
+    margin-top: -50px; /* Setze den oberen Abstand auf die negative Höhe des Footers */
+}
+

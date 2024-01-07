@@ -24,6 +24,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { KindergartenDetailComponent } from './kindergarten-Waldorf/kindergarten-detail.component';
+import { KindergartenStadtWien1Component } from './kindergarten-stadt-wien1/kindergarten-stadt-wien1.component';
+import { KindergartenStadtWien2Component } from './kindergarten-stadt-wien2/kindergarten-stadt-wien2.component';
+import { KigaMontessoriComponent } from './kiga-montessori/kiga-montessori.component';
+import { KigaKarlSchubertComponent } from './kiga-karl-schubert/kiga-karl-schubert.component';
+import { FooterComponent } from './footer/footer.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 @NgModule({
@@ -34,8 +42,15 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DataComponent,
     HeaderComponent,
     ButtonComponent,
-    LoadingSpinnerComponent
-    //PaginationPipe
+    LoadingSpinnerComponent,
+    KindergartenDetailComponent, 
+    KindergartenStadtWien1Component, 
+    KindergartenStadtWien2Component, 
+    KigaMontessoriComponent, 
+    KigaKarlSchubertComponent, 
+    FooterComponent, 
+    CarouselComponent
+
   ],
   imports: [
     BrowserModule,
@@ -55,7 +70,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule, 
     MatSelectModule, 
     MatPaginatorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule, 
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

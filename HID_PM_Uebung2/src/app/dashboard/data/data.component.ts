@@ -1,8 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
 import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
 import { StoreService } from 'src/app/shared/store.service';
 import { PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
+import { Child, ChildResponse } from 'src/app/shared/store.service';
 
 
 @Component({
@@ -13,15 +16,47 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class DataComponent implements OnInit {
 
-  constructor(public storeService: StoreService, private backendService: BackendService) {}
+  constructor(public storeService: StoreService, public backendService: BackendService) {}
+
+  /*  //Sortierversuch
+  displayedColumns: string[] = ['name', 'kindergarden', 'adress', 'age', 'birthdate' ];
+  dataSource = new MatTableDataSource<ChildResponse>();
+  @ViewChild(MatSort) sort!: MatSort;
+  */
   
   @Input() currentPage!: number;
   @Output() selectPageEvent = new EventEmitter<number>();
   public page: number = 0;
   public childrenPerPage: number = CHILDREN_PER_PAGE;
 
+
+  /*
+  //Sortierversuch
+  formattedData = this.storeService.children.map(child => ({
+      id: child.id,
+      name: child.name,
+      birthDate: child.birthDate,
+      kindergraden: child.kindergarden.name,
+      kindergradenId: child.kindergarden.id,
+  }));
+
+   //Sortierversuch
+    this.dataSource.data = this.storeService.children.map(child => ({
+      id: child.id,
+      name: child.name,
+      birthDate: child.birthDate,
+      kindergraden: child.kindergarden.,
+    }));
+  */
+
   ngOnInit(): void {
+  
     this.backendService.getChildren(this.currentPage);
+    
+    /*
+    this.dataSource.data = this.storeService.children;
+    this.dataSource.sort = this.sort
+    */
   }
 
   getAge(birthDate: string) {
@@ -64,44 +99,26 @@ export class DataComponent implements OnInit {
     this.backendService.getChildren(currentPage);
   }
 
+  
+  public selectedKindergarten: string | null = null;
 
-
- /*
-
-  Erster Versuch der Implementierung einer Suchfunktion
-
-  searchText: string = '';
-  items: any[] = [
-    { name: 'Item 1' },
-    { name: 'Item 2' },
-  ... weitere Elemente
-   ];
-
-   filteredItems(): any[] {
-     if (!this.searchText) {
-       return this.items;
-    }
-
-   const searchTextLowerCase = this.searchText.toLowerCase();
-
-   return this.items.filter(item => {
-      // Implementiere erweiterte Filterlogik hier
-     const nameMatch = item.name.toLowerCase().includes(searchTextLowerCase);
-     const kindergardenMatch = item.kindergarden.name.toLowerCase().includes(searchTextLowerCase);
-
-       // Filtere nach Name oder Kindergarten-Name
-       return nameMatch || kindergardenMatch;
-     });
-   }
-
-  // Neue Variable für gefilterte Daten
-   filteredData: any[] = [];
-
-  updateFilteredData() {
-   this.filteredData = this.filteredItems();
+  public setSelectedKindergarten(kindergarten: string | null): void {
+    this.selectedKindergarten = kindergarten;
+    this.filterChildren();
   }
-  */
+  
+  public filterChildren(): void {
+    if (this.selectedKindergarten) {
+      this.storeService.children = this.storeService.children.filter(child => child.kindergarden.name === this.selectedKindergarten);
+    } else {
+      this.backendService.getChildren(this.currentPage);
+    }
+  }
 
+  public getUniqueKindergartens(): string[] {
+    return [...new Set(this.storeService.children.map(child => child.kindergarden.name))];
+  }
 }
+  
 
 

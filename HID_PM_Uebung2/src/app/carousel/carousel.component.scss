@@ -1,0 +1,53 @@
+#carouselExampleCaptions {
+    width: 100%; /* Ändern Sie die Breite des Carousels nach Bedarf */
+    margin: auto; /* Zentrieren Sie das Carousel horizontal */
+    padding: 20px; /* Fügen Sie Padding nach Bedarf hinzu */
+    height: 25%;
+}
+  
+.carousel-inner {
+height: 400px; /* Ändern Sie die Höhe des Carousel-Inner-Containers nach Bedarf */
+}
+
+.carousel-item img {    
+display: flex;
+justify-content: center; /* Zentrierung horizontal */
+align-items: center; /* Zentrierung vertikal */
+
+width: 100%; /* Stellen Sie sicher, dass die Bilder die volle Breite der Carousel-Elemente einnehmen */
+height: 1%; /* Optional: Stellen Sie sicher, dass die Bilder die volle Höhe der Carousel-Elemente einnehmen */
+}
+
+/* Optional: Weitere Anpassungen für den Carousel-Text oder andere Elemente */
+.carousel-caption {
+background-color: rgba(0, 0, 0, 0.5); /* Beispiel für einen halbtransparenten Hintergrund für den Text */
+padding: 10px; /* Beispiel für Padding im Carousel-Caption-Container */
+border-radius: 5px; /* Beispiel für abgerundete Ecken */
+}
+
+.carousel-inner {
+display: flex;
+align-items: center; /* Zentriert den Inhalt vertikal */
+height: 100%;
+}
+  
+.carousel-caption {
+position: absolute;
+top: 74%; /* Positioniert den Text vertikal in der Mitte des Carousel-Elements */
+left: 50%; /* Positioniert den Text horizontal in der Mitte des Carousel-Elements */
+transform: translate(-50%, -50%); /* Zentriert den Text sowohl horizontal als auch vertikal */
+width: 100%;
+text-align: center; /* Zentriert den Text horizontal */
+z-index: 1; /* Stellt sicher, dass der Text über den Bildern liegt */
+}
+
+/* Optional: Weitere Anpassungen für den Carousel-Text oder andere Elemente */
+.carousel-caption h5,
+.carousel-caption p {
+color: #fff; /* Beispiel für die Textfarbe */
+}
+  
+  
+
+  
+  
