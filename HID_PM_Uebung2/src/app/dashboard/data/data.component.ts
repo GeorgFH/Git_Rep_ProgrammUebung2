@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { BackendService } from 'src/app/shared/backend.service';
 import { CHILDREN_PER_PAGE } from 'src/app/shared/constants';
 import { StoreService } from 'src/app/shared/store.service';
 import { PageEvent } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource, MatTableDataSourcePaginator, MatTableModule } from '@angular/material/table';
+import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { Child, ChildResponse } from 'src/app/shared/store.service';
+import { Kindergarden } from 'src/app/shared/interfaces/Kindergarden';
 
 
 @Component({
@@ -14,48 +15,36 @@ import { Child, ChildResponse } from 'src/app/shared/store.service';
   styleUrls: ['./data.component.scss'], 
   
 })
-export class DataComponent implements OnInit {
+export class DataComponent implements OnInit, AfterViewInit {
 
   constructor(public storeService: StoreService, public backendService: BackendService) {}
 
-  /*  //Sortierversuch
-  displayedColumns: string[] = ['name', 'kindergarden', 'adress', 'age', 'birthdate' ];
-  dataSource = new MatTableDataSource<ChildResponse>();
-  @ViewChild(MatSort) sort!: MatSort;
-  */
-  
+    
   @Input() currentPage!: number;
   @Output() selectPageEvent = new EventEmitter<number>();
   public page: number = 0;
   public childrenPerPage: number = CHILDREN_PER_PAGE;
-
-
-  /*
-  //Sortierversuch
-  formattedData = this.storeService.children.map(child => ({
-      id: child.id,
-      name: child.name,
-      birthDate: child.birthDate,
-      kindergraden: child.kindergarden.name,
-      kindergradenId: child.kindergarden.id,
-  }));
-
-   //Sortierversuch
-    this.dataSource.data = this.storeService.children.map(child => ({
-      id: child.id,
-      name: child.name,
-      birthDate: child.birthDate,
-      kindergraden: child.kindergarden.,
-    }));
-  */
+  dataSource: any;
+  
+  
+  @ViewChild(MatSort) sort!: MatSort;
+  
 
   ngOnInit(): void {
-  
-    this.backendService.getChildren(this.currentPage);
+    this.backendService.getChildren(this.currentPage); 
+
+  }
+
+  ngAfterViewInit() {
     
+    this.storeService.sort = this.sort;
     /*
-    this.dataSource.data = this.storeService.children;
-    this.dataSource.sort = this.sort
+    setTimeout(() => {
+
+      this.dataSource = new MatTableDataSource<ChildResponse>(this.storeService.children);  
+      this.dataSource.sort = this.sort;
+
+    }, 3000);
     */
   }
 
@@ -70,11 +59,13 @@ export class DataComponent implements OnInit {
     return age;
   }
 
+  /*
   selectPage(i: any) {
     let currentPage = i;
     this.selectPageEvent.emit(currentPage)
     this.backendService.getChildren(currentPage);
   }
+  */
   
   public returnAllPages() {
     let res = [];
@@ -109,7 +100,7 @@ export class DataComponent implements OnInit {
   
   public filterChildren(): void {
     if (this.selectedKindergarten) {
-      this.storeService.children = this.storeService.children.filter(child => child.kindergarden.name === this.selectedKindergarten);
+      this.storeService.childrenSort = this.storeService.children.filter(child => child.kindergarden.name === this.selectedKindergarten);
     } else {
       this.backendService.getChildren(this.currentPage);
     }

@@ -10,13 +10,16 @@ export class StoreService {
   constructor() { }
 
   public kindergardens: Kindergarden[] = [];
-  public children: ChildResponse[] = []
+  public children: ChildResponse[] = [];
   public childrenTotalCount: number = 0;
   public isLoading = false;
+  public childrenSort: any;
+  public sort: any;
+  //public page!: number;
 
   public setLoadingState(loading: boolean): void {
     this.isLoading = loading;
   }
 }
 
-export { ChildResponse, Child };
+export { ChildResponse, Child, Kindergarden };

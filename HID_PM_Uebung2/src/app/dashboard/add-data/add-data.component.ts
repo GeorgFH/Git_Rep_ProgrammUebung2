@@ -24,12 +24,15 @@ export class AddDataComponent implements OnInit{
   @Input() currentPage!: number;
   
   ngOnInit(): void {
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString('de-DE'); 
 
     this.addChildForm = this.formbuilder.group({
       name: ['', [Validators.required]],
       kindergardenId: ['', Validators.required],
-      birthDate: [null, Validators.required]
-    })
+      birthDate: [null, Validators.required], 
+      registrationDate: [formattedDate],
+    });
 
   }
   

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'kindergarten2', component: KindergartenStadtWien1Component },
   { path: 'kindergarten3', component: KindergartenStadtWien2Component }, 
   { path: 'kindergarten4', component: KigaMontessoriComponent },
-  { path: 'kindergarten5', component: KigaKarlSchubertComponent },
+  { path: 'kindergarten5', component: KigaKarlSchubertComponent }
 
 ];
 
