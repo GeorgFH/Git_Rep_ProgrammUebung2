@@ -104,6 +104,13 @@
       "birthDate": "2023-01-25",
       "registrationDate": "8.1.2024",
       "id": "QOJeRfj"
+    },
+    {
+      "name": "Lena Duck",
+      "kindergardenId": 2,
+      "birthDate": "1999-01-17",
+      "registrationDate": "11.1.2024",
+      "id": "rZLWg-2"
     }
   ],
   "kindergardens": [
